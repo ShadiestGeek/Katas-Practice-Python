@@ -13,3 +13,15 @@
             return []
         x.remove(min(x))
         return x
+        
+ #Check if a "Product Discount Coupon" is past a set expiration date
+    def check_coupon(entered_code, correct_code, current_date, expiration_date):
+        from datetime import datetime
+        A = str(datetime.strptime(current_date, '%B %d, %Y'))
+        B = str(datetime.strptime(expiration_date, '%B %d, %Y'))
+        if isinstance(entered_code, str):
+          if entered_code != correct_code:
+            return False
+          if entered_code == correct_code and A <= B:
+            return True
+        return False
